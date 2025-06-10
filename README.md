@@ -4,7 +4,7 @@ Este proyecto permite la recepción, decodificación y visualización de datos I
 
 ## Requisitos
 
-- [Node.js](https://nodejs.org/) (versión recomendada: >= 18)
+- [Node.js](https://nodejs.org/)
 - npm (viene con Node.js)
 - Node-RED
 
@@ -14,16 +14,16 @@ Clona el repositorio y navega al directorio:
 
 ```bash
 git clone https://github.com/0L1nc3/IoT_experiments.git
-cd TU_REPOSITORIO
+cd IoT_experiments
 npm install
 ```
 
 ## Ejecución del servidor
-Servidor principal (WebSocket, etc.)
+Servidor principal API
 ```bash
 node server.js
 ```
-Decodificador (análisis de datos)
+Decodificador (análisis de datos de callback-iot.onreader/data)
 
 ```bash
 node decoder.js
