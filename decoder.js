@@ -29,7 +29,7 @@ async function fetchAndDecodeData() {
 }
 
 function decodeHexData(hexString) {
-    // Convertir el string hexadecimal a un buffer
+    // Convertir el string hexadecimal a un buffer de bytes
     const buffer = Buffer.from(hexString, 'hex');
 
     // Verificar que tenemos suficientes bytes (3 floats de 32 bits = 12 bytes)
@@ -37,10 +37,10 @@ function decodeHexData(hexString) {
         throw new Error('Datos hexadecimales insuficientes. Se esperaban al menos 12 bytes.');
     }
 
-    // Leer los tres valores float (little-endian)
-    const temperature = buffer.readFloatLE(0);
-    const humidity = buffer.readFloatLE(4);
-    const pressure = buffer.readFloatLE(8);
+    // Leer números de float de 32 bits en formato little-endian.
+    const temperature = buffer.readFloatLE(0); // 0-3.
+    const humidity = buffer.readFloatLE(4); // 4-7.
+    const pressure = buffer.readFloatLE(8); //8-11.
 
     return { temperature, humidity, pressure };
 }
